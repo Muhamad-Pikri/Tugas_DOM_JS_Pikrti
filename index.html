@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title> Pikri Latihan DOM</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js" 
-    integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.8.1/js/all.js"
+        integrity="sha384-g5uSoOSBd7KkhAMlnQILrecXvzst9TdC09/VM+pjDTCM+1il8RHz5fKANTFFb+gQ"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -20,7 +21,8 @@
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" id="keyword" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchItem">Search</button>
             </form>
-            <button class="btn btn-dark" id="cart"><i class="fas fa-shopping-cart"></i><span id="cartItemCount">(0)</span></button>
+            <button class="btn btn-dark" id="cart"><i class="fas fa-shopping-cart"></i><span
+                    id="cartItemCount">(0)</span></button>
         </nav>
         <div class="row">
             <div class="row col-md-12 mt-2" id="listBarang">
@@ -30,35 +32,38 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
 </body>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-    const listBarang = document.getElementById("listBarang");
-    const formItem = document.getElementById("formItem");
-    const keywordInput = document.getElementById("keyword");
-    let totalBarangDiKeranjang = 0;
+        const listBarang = document.getElementById("listBarang");
+        const formItem = document.getElementById("formItem");
+        const keywordInput = document.getElementById("keyword");
+        let totalBarangDiKeranjang = 0;
 
-    var items = [
-        ['001', 'Keyboard Logitek', 60000, 'Keyboard yang bagus untuk kantoran dan ngoding', 'img/logitek.jpg'],
-        ['002', 'Keyboard MSI', 300000, 'Keyboard gaming MSI untuk bermain game', 'img/msi.jpg'],
-        ['003', 'Mouse Genius', 50000, 'Mouse Genius biar lebih jago gamingnya', 'img/genius.jpg'],
-        ['004', 'Mouse Jerry', 30000, 'Mouse yang disukai pelajar karena harga yang terjangkau', 'img/jerry.jpg'],
-        ['005', 'Monitor Gaming', 3000000, 'Monitor Gaming ROG dana pelajar', 'img/monitor.jpg'],
-        ['006', 'Kursi Gaming', 1000000, 'Kursi Gaming  empuk dan nyaman dana pelajar', 'img/kursigaming.jpg'],
-        ['007', 'PC Gaming', 50000000, 'PC Gaming ROG Strix GeForce RTX4090 White dana pelajar', 'img/pcgaming.jpg']
-    ]
-    function Cari(keyword) {
-        listBarang.innerHTML = "";
-        for (let i = 0; i < items.length; i++) {
-            const item = items[i];
-            if (item[1].toLowerCase().includes(keyword.toLowerCase())) {
-                const card = document.createElement("div");
-                card.classList.add("col-4", "mt-2");
-                card.innerHTML = `
+        var items = [
+            ['001', 'Keyboard Logitek', 60000, 'Keyboard yang bagus untuk kantoran dan ngoding', 'img/logitek.jpg'],
+            ['002', 'Keyboard MSI', 300000, 'Keyboard gaming MSI untuk bermain game', 'img/msi.jpg'],
+            ['003', 'Mouse Genius', 50000, 'Mouse Genius biar lebih jago gamingnya', 'img/genius.jpg'],
+            ['004', 'Mouse Jerry', 30000, 'Mouse yang disukai pelajar karena harga yang terjangkau', 'img/jerry.jpg'],
+            ['005', 'Monitor Gaming', 3000000, 'Monitor Gaming ROG dana pelajar', 'img/monitor.jpg'],
+            ['006', 'Kursi Gaming', 1000000, 'Kursi Gaming  empuk dan nyaman dana pelajar', 'img/kursigaming.jpg'],
+            ['007', 'PC Gaming', 50000000, 'PC Gaming ROG Strix GeForce RTX4090 White dana pelajar', 'img/pcgaming.jpg'],
+            ['008', 'Headset Gaming', 500000, 'Headset Gaming RGB stereo bass surround dana pelajar', 'img/headsetgaming.jpg'],
+            ['009', 'Webcam Gaming', 350000, 'Webcam Gaming HD 1080p 60FPS USB dana pelajar', 'img/webcamgaming.jpg']
+        ]
+        function Cari(keyword) {
+            listBarang.innerHTML = "";
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
+                if (item[1].toLowerCase().includes(keyword.toLowerCase())) {
+                    const card = document.createElement("div");
+                    card.classList.add("col-4", "mt-2");
+                    card.innerHTML = `
                     <div class="card" style="width: 18rem;">
                         <img src="${item[4]}" class="card-img-top" height="200px" alt="${item[1]}">
                         <div class="card-body">
@@ -69,62 +74,63 @@
                         </div>
                     </div>
                 `;
-                listBarang.appendChild(card);
-            }
-        }
-
-        const btnTambahKeKeranjang = document.querySelectorAll(".tmbh-ke-keranjang");
-        btnTambahKeKeranjang.forEach(button => {
-            button.addEventListener("click", tambahKeKeranjang);
-        });
-    }
-    
-    // menangani ketika tombol submit diklik
-    formItem.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const keyword = keywordInput.value;
-        Cari(keyword);
-    });
-
-    document.getElementById("cart").addEventListener("click", function () {
-        if (totalBarangDiKeranjang <= 0) {
-            Swal.fire('Info!', 'Keranjang sudah kosong!', 'info');
-        } else if (totalBarangDiKeranjang > 0 || totalBarangDiKeranjang === `9+`) {
-            Swal.fire({
-                title: 'Konfirmasi',
-                text: "Yakin mau kosongkan keranjang!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya!',
-                cancelButtonText: 'Batal!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire('Berhasil!', 'Keranjang berhasil dikosongkan!', 'success');
-                    totalBarangDiKeranjang = 0;
-                    document.getElementById("cartItemCount").textContent = `(0)`;
+                    listBarang.appendChild(card);
                 }
+            }
+
+            const btnTambahKeKeranjang = document.querySelectorAll(".tmbh-ke-keranjang");
+            btnTambahKeKeranjang.forEach(button => {
+                button.addEventListener("click", tambahKeKeranjang);
             });
         }
-    });
 
-    function tambahKeKeranjang(event) {
-        const itemId = event.target.getAttribute("data-id");
-        // untuk mencari item dari array items yang punya id yg sama dengan itemId
-        const item = items.find(item => item[0] === itemId);
+        // menangani ketika tombol submit diklik
+        formItem.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const keyword = keywordInput.value;
+            Cari(keyword);
+        });
 
-        if (totalBarangDiKeranjang < 9) {
-            totalBarangDiKeranjang++;
-        } else {
-            totalBarangDiKeranjang = `9+`;
+        document.getElementById("cart").addEventListener("click", function () {
+            if (totalBarangDiKeranjang <= 0) {
+                Swal.fire('Info!', 'Keranjang sudah kosong!', 'info');
+            } else if (totalBarangDiKeranjang > 0 || totalBarangDiKeranjang === `9+`) {
+                Swal.fire({
+                    title: 'Konfirmasi',
+                    text: "Yakin mau kosongkan keranjang!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Ya!',
+                    cancelButtonText: 'Batal!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire('Berhasil!', 'Keranjang berhasil dikosongkan!', 'success');
+                        totalBarangDiKeranjang = 0;
+                        document.getElementById("cartItemCount").textContent = `(0)`;
+                    }
+                });
+            }
+        });
+
+        function tambahKeKeranjang(event) {
+            const itemId = event.target.getAttribute("data-id");
+            // untuk mencari item dari array items yang punya id yg sama dengan itemId
+            const item = items.find(item => item[0] === itemId);
+
+            if (totalBarangDiKeranjang < 9) {
+                totalBarangDiKeranjang++;
+            } else {
+                totalBarangDiKeranjang = `9+`;
+            }
+
+            document.getElementById("cartItemCount").textContent = `(${totalBarangDiKeranjang})`;
         }
 
-        document.getElementById("cartItemCount").textContent = `(${totalBarangDiKeranjang})`;
-    }
-
-    // Menampilkan semua barang saat halaman dimuat
-    Cari("");
-});
+        // Menampilkan semua barang saat halaman dimuat
+        Cari("");
+    });
 </script>
+
 </html>
